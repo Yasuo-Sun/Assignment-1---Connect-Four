@@ -9,20 +9,27 @@ public final class TextView
 	{
 	
 	}
-	
+
+	/**
+	 * print a message to tell user that a new game start
+	 */
 	public final void displayNewGameMessage()
 	{
 		System.out.println("---- NEW GAME STARTED ----");
 	}
 	
-	public final int askForMove()
-	{
+	public final int askForMove() {
 		System.out.print("Select a free column: ");
 		return InputUtil.readIntFromUser();
 	}
-	
-	public final void displayBoard(Model model)
-	{
+
+	/**
+	 * print whole board, left-right direction is row, up-down direction is col
+	 * row number from 0 in left to number of board rows - 1 in right
+	 * col number from 0 in bottom to number of board cols - 1 in upper direction
+	 * @param model
+	 */
+	public final void displayBoard(Model model) {
 		int nrRows = model.getNrRows();
 		int nrCols = model.getNrCols();
 		// Get your board representation.
@@ -39,7 +46,9 @@ public final class TextView
 		sb.append("\n");
 
 		for(int row = model.getNrRows() - 1; row >= 0; row--) {
+			// get row from board
 			int[] rowState = model.getBoardRow(row);
+			// add each position of board in string to print
 			for(int col = 0; col < model.getNrCols(); col++) {
 				sb.append(rowState[col] + "   ");
 			}
@@ -51,4 +60,5 @@ public final class TextView
 		// Then print out the assembled String.
 		System.out.println(sb);
 	}
+
 }

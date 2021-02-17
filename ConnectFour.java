@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 /**
  * The main class of the Connect Four game.
  * You should not have to touch this code (except maybe for advanced features).
@@ -13,8 +15,7 @@ public final class ConnectFour
 	 *
 	 * @param args No arguments expected.
 	 */
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) throws IOException {
 		// Creates a model representing the state of the game.
 		Model model = new Model();
 		
